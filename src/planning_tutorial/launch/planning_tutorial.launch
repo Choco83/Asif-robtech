@@ -1,0 +1,8 @@
+<launch>
+
+  <include file="$(find motoman_sia5d_moveit_config)/launch/demo.launch"/>
+
+  <node name="p_tutorial" pkg="planning_tutorial" type="planning_tutorial" respawn="false" output="screen">
+  </node>
+
+</launch>
