@@ -5,7 +5,8 @@
 <!-- =================================================================================== -->
 <!--Generates a urdf from the macro in sia5_macro.xacro -->
 <robot name="motoman_sia5d" xmlns:xacro="http://ros.org/wiki/xacro">
-  <!--degrees to radians-->
+  <!--degrees to radians--> 
+
   <link name="base_link">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
@@ -20,6 +21,7 @@
       </geometry>
     </collision>
   </link>
+
   <link name="link_s">
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
