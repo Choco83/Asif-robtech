@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="dual_manipulator">
+
+  <link name="boxx">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.7 1.5 0.1"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.7 1.5 0.1"/>
+      </geometry>
+    </collision>
+  </link>
+  
+  <xacro:include filename="$(find motoman_sia5d_support)/urdf/sia5d_macro.xacro"/>
+  <xacro:motoman_sia5d prefix="right_"/>
+
+  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+
+  <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro"/>
+  <xacro:ur5_robot prefix="left_" joint_limited="false"/>
+
+  <joint name="joint1" type="fixed">
+    <origin xyz="0 -0.5 0" rpy="0 0 0" /> <!--r=${90*deg}-->
+    <parent link="boxx" />
+    <child link="left_base_link" />
+  </joint>
+
+  <joint name="joint2" type="fixed">
+    <origin xyz="0 0.5 0" rpy="0 0 0" /> <!--r=${90*deg}-->
+    <parent link="boxx" />
+    <child link="right_base_link" />
+  </joint>
+</robot>
